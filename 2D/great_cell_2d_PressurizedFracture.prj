@@ -342,16 +342,16 @@
             <type>Constant</type>
             <value>1.</value>
         </parameter>
-        <!-- <parameter>
+        <parameter>
             <name>pressure_ic</name>
             <type>MeshNode</type>
             <field_name>p-ic</field_name>
-        </parameter> -->
-        <parameter>
+        </parameter>
+        <!-- <parameter>
             <name>pressure_ic</name>
             <type>Constant</type>
             <value>2000000.0</value>
-        </parameter>
+        </parameter> -->
         <parameter>
             <name>zero</name>
             <type>Constant</type>
