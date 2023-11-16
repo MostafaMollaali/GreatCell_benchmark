@@ -1,0 +1,1644 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<OpenGeoSysProject>
+    <meshes>
+        <mesh>mesh_GreatCell_vericalFracture_OGSNR_pf_ic_MIDs.vtu</mesh>
+        <mesh>G3_geometry_STRIP_1_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_STRIP_2_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_STRIP_3_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_STRIP_4_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_STRIP_5_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_STRIP_6_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_STRIP_7_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_STRIP_8_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_STRIP_9_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_STRIP_10_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_STRIP_11_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_STRIP_12_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_STRIP_13_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_STRIP_14_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_STRIP_15_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_STRIP_16_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_BAG_1_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_BAG_2_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_BAG_3_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_BAG_4_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_BAG_5_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_BAG_6_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_BAG_7_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_BAG_8_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_BAG_9_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_BAG_10_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_BAG_11_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_BAG_12_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_BAG_13_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_BAG_14_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_BAG_15_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_BAG_16_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_MIDDLE_BAG1.vtu</mesh>
+        <mesh>G3_geometry_MIDDLE_BAG5.vtu</mesh>
+        <mesh>G3_geometry_MIDDLE_BAG9.vtu</mesh>
+        <mesh>G3_geometry_MIDDLE_BAG13.vtu</mesh>
+        <mesh>G3_geometry_TOP_SURFACE.vtu</mesh>
+        <mesh>G3_geometry_BOTTOM_SURFACE.vtu</mesh>
+    </meshes>
+    <processes>
+        <process>
+            <name>THMPhaseField</name>
+            <type>THM_PHASE_FIELD</type>
+            <coupling_scheme>staggered</coupling_scheme>
+            <fixed_stress_parameter>1.0</fixed_stress_parameter>
+            <!-- <spatial_stabilization_parameter>1.0</spatial_stabilization_parameter> -->
+            <integration_order>2</integration_order>
+            <phasefield_model>AT1</phasefield_model>
+            <energy_split_model>VolumetricDeviatoric</energy_split_model>
+            <irreversible_threshold>0.1</irreversible_threshold>
+            <constitutive_relation>
+                <type>LinearElasticIsotropic</type>
+                <youngs_modulus>E</youngs_modulus>
+                <poissons_ratio>nu</poissons_ratio>
+            </constitutive_relation>
+            <phasefield_parameters>
+                <residual_stiffness>k</residual_stiffness>
+                <crack_resistance>gc</crack_resistance>
+                <crack_length_scale>ls</crack_length_scale>
+            </phasefield_parameters>
+            <width_init>w_ini</width_init>
+            <fracture_threshold>0.05</fracture_threshold>
+            <fluid_compressibility>cf</fluid_compressibility>
+            <diffused_range_parameter>4</diffused_range_parameter>
+            <permeability_parameter>10.</permeability_parameter>
+            <process_variables>
+                <temperature>temperature</temperature>
+                <pressure>pressure</pressure>
+                <displacement>displacement</displacement>
+                <phasefield>phasefield</phasefield>
+            </process_variables>
+            <secondary_variables>
+                <secondary_variable internal_name="sigma" output_name="sigma"/>
+                <secondary_variable internal_name="epsilon" output_name="epsilon"/>
+                <secondary_variable internal_name="width_node" output_name="width_node"/>
+            </secondary_variables>
+            <specific_body_force>0 0 -9.8</specific_body_force>
+        </process>
+    </processes>
+    <media>
+        <medium>
+            <phases>
+                <phase>
+                    <type>Gas</type>
+                    <properties>
+                        <property>
+                            <name>viscosity</name>
+                            <type>Constant</type>
+                            <value>1e-8</value>
+                        </property>
+                        <property>
+                            <name>density</name>
+                            <type>Constant</type>
+                            <value>1e3</value>
+                        </property>
+                    </properties>
+                </phase>
+                <phase>
+                    <type>Solid</type>
+                    <properties>
+                        <property>
+                            <name>density</name>
+                            <type>Constant</type>
+                            <value>2.7e3</value>
+                        </property>
+                        <property>
+                            <name>biot_coefficient</name>
+                            <type>Constant</type>
+                            <value>0.0</value>
+                        </property>
+                    </properties>
+                </phase>
+            </phases>
+            <properties>
+                <property>
+                    <name>reference_temperature</name>
+                    <type>Constant</type>
+                    <value>293.15</value>
+                </property>
+                <property>
+                    <name>porosity</name>
+                    <type>Constant</type>
+                    <value>0.0</value>
+                </property>
+                <property>
+                    <name>permeability</name>
+                    <type>Constant</type>
+                    <value>1e-19</value>
+                </property>
+            </properties>
+        </medium>
+    </media>
+    <time_loop>
+        <global_process_coupling>
+            <max_iter> 100 </max_iter>
+            <convergence_criteria>
+                <!-- convergence criterion for the first process -->
+                <convergence_criterion>
+                    <type>DeltaX</type>
+                    <norm_type>NORM2</norm_type>
+                    <!-- <abstol>1.e-3</abstol> -->
+                    <reltol>1.e1</reltol>
+                </convergence_criterion>
+                <!-- convergence criterion for the second process -->
+                <convergence_criterion>
+                    <type>DeltaX</type>
+                    <norm_type>NORM2</norm_type>
+                    <abstol>1.e-8</abstol>
+                    <reltol>1.e-4</reltol>
+                </convergence_criterion>
+                <!-- convergence criterion for the third process -->
+                <convergence_criterion>
+                    <type>DeltaX</type>
+                    <norm_type>NORM2</norm_type>
+                    <abstol>1.e-8</abstol>
+                    <reltol>1.e-4</reltol>
+                </convergence_criterion>
+                <!-- convergence criterion for the fourth process -->
+                <convergence_criterion>
+                    <type>DeltaX</type>
+                    <norm_type>NORM2</norm_type>
+                    <abstol>1.e-8</abstol>
+                    <reltol>1.e-4</reltol>
+                </convergence_criterion>
+            </convergence_criteria>
+        </global_process_coupling>
+        <processes>
+            <process ref="THMPhaseField">
+                <skip_process_computation>true</skip_process_computation>
+                <nonlinear_solver>basic_newton_p</nonlinear_solver>
+                <convergence_criterion>
+                    <type>DeltaX</type>
+                    <norm_type>NORM2</norm_type>
+                    <reltol>1.e1</reltol>
+                </convergence_criterion>
+                <time_discretization>
+                    <type>BackwardEuler</type>
+                </time_discretization>
+                <time_stepping>
+                    <type>FixedTimeStepping</type>
+                    <t_initial>0</t_initial>
+                    <t_end>4</t_end>
+                    <timesteps>
+                        <pair>
+                            <repeat>1</repeat>
+                            <delta_t>1.0</delta_t>
+                        </pair>
+                    </timesteps>
+                </time_stepping>
+            </process>
+            <process ref="THMPhaseField">
+                <!-- <skip_process_computation>true</skip_process_computation> -->
+                <nonlinear_solver>petsc_snes</nonlinear_solver>
+                <convergence_criterion>
+                    <type>DeltaX</type>
+                    <norm_type>NORM2</norm_type>
+                    <reltol>1.e-4</reltol>
+                </convergence_criterion>
+                <time_discretization>
+                    <type>BackwardEuler</type>
+                </time_discretization>
+                <time_stepping>
+                    <type>FixedTimeStepping</type>
+                    <t_initial>0</t_initial>
+                    <t_end>4</t_end>
+                    <timesteps>
+                        <pair>
+                            <repeat>1</repeat>
+                            <delta_t>1.0</delta_t>
+                        </pair>
+                    </timesteps>
+                </time_stepping>
+            </process>
+            <process ref="THMPhaseField">
+                <skip_process_computation>true</skip_process_computation>
+                <nonlinear_solver>basic_newton_p</nonlinear_solver>
+                <convergence_criterion>
+                    <type>DeltaX</type>
+                    <norm_type>NORM2</norm_type>
+                    <abstol>1e-8</abstol>
+                    <reltol>1.e-4</reltol>
+                </convergence_criterion>
+                <time_discretization>
+                    <type>BackwardEuler</type>
+                </time_discretization>
+                <time_stepping>
+                    <type>FixedTimeStepping</type>
+                    <t_initial>0</t_initial>
+                    <t_end>4</t_end>
+                    <timesteps>
+                        <pair>
+                            <repeat>1</repeat>
+                            <delta_t>1.0</delta_t>
+                        </pair>
+                    </timesteps>
+                </time_stepping>
+            </process>
+            <process ref="THMPhaseField">
+                <!-- <skip_process_computation>true</skip_process_computation> -->
+                <nonlinear_solver>basic_newton_u</nonlinear_solver>
+                <convergence_criterion>
+                    <type>DeltaX</type>
+                    <norm_type>NORM2</norm_type>
+                    <abstol>1e-14</abstol>
+                    <reltol>1.e-4</reltol>
+                </convergence_criterion>
+                <time_discretization>
+                    <type>BackwardEuler</type>
+                </time_discretization>
+                <time_stepping>
+                    <type>FixedTimeStepping</type>
+                    <t_initial>0</t_initial>
+                    <t_end>4</t_end>
+                    <timesteps>
+                        <pair>
+                            <repeat>1</repeat>
+                            <delta_t>1.0</delta_t>
+                        </pair>
+                    </timesteps>
+                </time_stepping>
+            </process>
+        </processes>
+        <output>
+            <type>VTK</type>
+            <prefix>GreatCell_3D</prefix>
+            <variables>
+                <variable>displacement</variable>
+                <variable>phasefield</variable>
+                <variable>pressure</variable>
+                <variable>sigma</variable>
+                <variable>epsilon</variable>
+            </variables>
+            <output_iteration_results>false</output_iteration_results>
+            <timesteps>
+                <pair>
+                    <repeat>1</repeat>
+                    <each_steps>1</each_steps>
+                </pair>
+            </timesteps>
+        </output>
+    </time_loop>
+    <parameters>
+        <parameter>
+            <name>E</name>
+            <type>Constant</type>
+            <value>3.85e9</value>
+        </parameter>
+        <parameter>
+            <name>nu</name>
+            <type>Constant</type>
+            <value>0.4</value>
+        </parameter>
+        <!-- <parameter>
+            <name>E</name>
+            <type>MeshElement</type>
+            <field_name>E</field_name>
+        </parameter>
+        <parameter>
+            <name>nu</name>
+            <type>MeshElement</type>
+            <field_name>nu</field_name>
+        </parameter> -->
+        <parameter>
+            <name>k</name>
+            <type>Constant</type>
+            <value>1e-10</value>
+        </parameter>
+        <parameter>
+            <name>gc</name>
+            <type>Constant</type>
+            <value>500</value>
+        </parameter>
+        <parameter>
+            <name>ls</name>
+            <type>Constant</type>
+            <value>0.003</value>
+        </parameter>
+        <parameter>
+            <name>H</name>
+            <type>Constant</type>
+            <value>0.0</value>
+        </parameter>
+        <parameter>
+            <name>cf</name>
+            <type>Constant</type>
+            <value>0.0</value>
+        </parameter>
+        <parameter>
+            <name>displacement0</name>
+            <type>Constant</type>
+            <values>0 0 0</values>
+        </parameter>
+        <parameter>
+            <name>phasefield_ic</name>
+            <type>MeshNode</type>
+            <field_name>pf-ic</field_name>
+        </parameter>
+        <parameter>
+            <name>phasefield_bc</name>
+            <type>Constant</type>
+            <value>1.</value>
+        </parameter>
+        <parameter>
+            <name>pressure_ic</name>
+            <type>MeshNode</type>
+            <field_name>p-ic</field_name>
+        </parameter>
+        <!-- <parameter>
+            <name>pressure_ic</name>
+            <type>Constant</type>
+            <value>0</value>
+        </parameter> -->
+        <parameter>
+            <name>pressure_bc0</name>
+            <type>Constant</type>
+            <value>0.</value>
+        </parameter>
+        <parameter>
+            <name>zero</name>
+            <type>Constant</type>
+            <value>0</value>
+        </parameter>
+        <parameter>
+            <name>w_ini</name>
+            <!-- <type>MeshElement</type>
+            <field_name>initial_width</field_name> -->
+            <type>Constant</type>
+            <value>0</value>
+        </parameter>
+        <parameter>
+            <name>loading</name>
+            <type>Constant</type>
+            <value>1</value>
+        </parameter>
+        <parameter>
+            <name>TOP_SURFACE_DZ</name>
+            <type>CurveScaled</type>
+            <curve>TOP_SURFACE_DZ_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_1_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_1_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_1_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_1_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_2_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_2_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_2_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_2_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_3_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_3_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_3_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_3_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_5_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_5_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_5_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_5_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_4_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_4_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_4_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_4_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_6_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_6_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_6_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_6_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_7_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_7_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_7_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_7_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_8_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_8_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_8_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_8_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_9_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_9_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_9_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_9_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_10_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_10_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_10_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_10_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_11_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_11_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_11_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_11_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_12_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_12_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_12_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_12_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_13_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_13_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_13_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_13_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_14_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_14_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_14_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_14_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_15_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_15_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_15_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_15_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_16_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_16_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>BAG_16_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>BAG_16_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_1_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_1_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_1_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_1_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_2_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_2_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_2_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_2_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_3_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_3_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_3_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_3_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_5_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_5_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_5_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_5_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_4_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_4_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_4_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_4_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_6_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_6_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_6_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_6_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_7_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_7_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_7_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_7_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_8_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_8_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_8_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_8_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_9_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_9_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_9_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_9_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_10_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_10_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_10_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_10_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_11_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_11_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_11_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_11_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_12_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_12_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_12_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_12_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_13_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_13_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_13_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_13_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_14_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_14_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_14_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_14_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_15_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_15_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_15_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_15_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_16_SURFACE_FX_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_16_SURFACE_FX_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+        <parameter>
+            <name>STRIP_16_SURFACE_FY_CURVE</name>
+            <type>CurveScaled</type>
+            <curve>STRIP_16_SURFACE_FY_CURVE</curve>
+            <parameter>loading</parameter>
+        </parameter>
+    </parameters>
+    <curves>
+        <curve>
+            <name>TOP_SURFACE_DZ_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.00055</values>
+        </curve>
+        <curve>
+            <name>BAG_1_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+        <curve>
+            <name>BAG_1_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>BAG_2_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+        <curve>
+            <name>BAG_2_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>BAG_3_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+        <curve>
+            <name>BAG_3_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>BAG_4_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -3061467.4589207186 -3061467.4589207186 -3061467.4589207186 -3061467.4589207186</values>
+        </curve>
+        <curve>
+            <name>BAG_4_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 7391036.260090294 7391036.260090294 7391036.260090294 7391036.260090294</values>
+        </curve>
+        <curve>
+            <name>BAG_5_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+        <curve>
+            <name>BAG_5_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>BAG_6_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>BAG_6_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>BAG_7_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>BAG_7_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>BAG_8_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 7391036.260090294 7391036.260090294 7391036.260090294 7391036.260090294</values>
+        </curve>
+        <curve>
+            <name>BAG_8_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 3061467.4589207186 3061467.4589207186 3061467.4589207186 3061467.4589207186</values>
+        </curve>
+        <curve>
+            <name>BAG_9_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>BAG_9_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>BAG_10_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>BAG_10_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+        <curve>
+            <name>BAG_11_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>BAG_11_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+        <curve>
+            <name>BAG_12_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 3061467.458920723 3061467.458920723 3061467.458920723 3061467.458920723</values>
+        </curve>
+        <curve>
+            <name>BAG_12_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -7391036.260090292 -7391036.260090292 -7391036.260090292 -7391036.260090292</values>
+        </curve>
+        <curve>
+            <name>BAG_13_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>BAG_13_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+        <curve>
+            <name>BAG_14_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+        <curve>
+            <name>BAG_14_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+        <curve>
+            <name>BAG_15_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+        <curve>
+            <name>BAG_15_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+        <curve>
+            <name>BAG_16_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -7391036.260090292 -7391036.260090292 -7391036.260090292 -7391036.260090292</values>
+        </curve>
+        <curve>
+            <name>BAG_16_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -3061467.4589207233 -3061467.4589207233 -3061467.4589207233 -3061467.4589207233</values>
+        </curve>
+        <!--surface-->
+        <curve>
+            <name>STRIP_1_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_1_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_2_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_2_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_3_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_3_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_4_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_4_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_5_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_5_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_6_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_6_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_7_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_7_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_8_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_8_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_9_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_9_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_10_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_10_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_11_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_11_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_12_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>0.0 0.0 0.0 0.0 0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_12_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_13_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_13_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_14_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_14_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_15_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_15_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_16_SURFACE_FX_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+        <curve>
+            <name>STRIP_16_SURFACE_FY_CURVE</name>
+            <coords>0 1 2 3 4</coords>
+            <values>-0.0 -0.0 -0.0 -0.0 -0.0</values>
+        </curve>
+    </curves>
+    <process_variables>
+        <process_variable>
+            <name>temperature</name>
+            <components>1</components>
+            <order>1</order>
+            <initial_condition>pressure_ic</initial_condition>
+            <boundary_conditions>
+                <boundary_condition>
+                    <mesh>G3_geometry_TOP_SURFACE</mesh>
+                    <type>Dirichlet</type>
+                    <component>0</component>
+                    <parameter>pressure_bc0</parameter>
+                </boundary_condition>
+            </boundary_conditions>
+        </process_variable>
+        <process_variable>
+            <name>phasefield</name>
+            <components>1</components>
+            <order>1</order>
+            <initial_condition>phasefield_ic</initial_condition>
+            <boundary_conditions>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_13_SURFACE</mesh>
+                    <type>Dirichlet</type>
+                    <component>0</component>
+                    <parameter>phasefield_bc</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_13_SURFACE</mesh>
+                    <type>PhaseFieldIrreversibleDamageOracleBoundaryCondition</type>
+                    <component>0</component>
+                </boundary_condition>
+            </boundary_conditions>
+        </process_variable>
+        <process_variable>
+            <name>pressure</name>
+            <components>1</components>
+            <order>1</order>
+            <initial_condition>pressure_ic</initial_condition>
+            <boundary_conditions>
+                <boundary_condition>
+                    <mesh>G3_geometry_TOP_SURFACE</mesh>
+                    <type>Dirichlet</type>
+                    <component>0</component>
+                    <parameter>pressure_bc0</parameter>
+                </boundary_condition>
+            </boundary_conditions>
+        </process_variable>
+        <process_variable>
+            <name>displacement</name>
+            <components>3</components>
+            <order>1</order>
+            <initial_condition>displacement0</initial_condition>
+            <boundary_conditions>
+                <boundary_condition>
+                    <mesh>G3_geometry_MIDDLE_BAG1</mesh>
+                    <type>Dirichlet</type>
+                    <component>1</component>
+                    <parameter>zero</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_MIDDLE_BAG5</mesh>
+                    <type>Dirichlet</type>
+                    <component>0</component>
+                    <parameter>zero</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_MIDDLE_BAG9</mesh>
+                    <type>Dirichlet</type>
+                    <component>1</component>
+                    <parameter>zero</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_MIDDLE_BAG13</mesh>
+                    <type>Dirichlet</type>
+                    <component>0</component>
+                    <parameter>zero</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BOTTOM_SURFACE</mesh>
+                    <type>Dirichlet</type>
+                    <component>2</component>
+                    <parameter>zero</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_TOP_SURFACE</mesh>
+                    <type>Dirichlet</type>
+                    <component>2</component>
+                    <parameter>TOP_SURFACE_DZ</parameter>
+                </boundary_condition>
+                <!--Set loading conditions, here copy the yellow section from Excel file-->
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_1_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>BAG_1_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_1_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>BAG_1_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_2_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>BAG_2_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_2_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>BAG_2_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_3_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>BAG_3_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_3_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>BAG_3_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_4_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>BAG_4_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_4_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>BAG_4_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_5_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>BAG_5_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_5_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>BAG_5_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_6_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>BAG_6_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_6_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>BAG_6_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_7_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>BAG_7_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_7_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>BAG_7_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_8_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>BAG_8_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_8_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>BAG_8_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_9_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>BAG_9_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_9_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>BAG_9_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_10_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>BAG_10_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_10_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>BAG_10_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_11_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>BAG_11_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_11_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>BAG_11_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_12_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>BAG_12_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_12_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>BAG_12_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_13_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>BAG_13_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_13_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>BAG_13_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_14_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>BAG_14_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_14_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>BAG_14_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_15_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>BAG_15_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_15_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>BAG_15_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_16_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>BAG_16_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_BAG_16_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>BAG_16_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_1_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>STRIP_1_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_1_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>STRIP_1_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_2_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>STRIP_2_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_2_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>STRIP_2_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_3_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>STRIP_3_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_3_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>STRIP_3_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_4_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>STRIP_4_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_4_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>STRIP_4_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_5_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>STRIP_5_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_5_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>STRIP_5_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_6_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>STRIP_6_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_6_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>STRIP_6_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_7_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>STRIP_7_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_7_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>STRIP_7_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_8_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>STRIP_8_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_8_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>STRIP_8_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_9_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>STRIP_9_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_9_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>STRIP_9_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_10_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>STRIP_10_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_10_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>STRIP_10_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_11_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>STRIP_11_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_11_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>STRIP_11_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_12_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>STRIP_12_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_12_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>STRIP_12_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_13_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>STRIP_13_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_13_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>STRIP_13_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_14_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>STRIP_14_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_14_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>STRIP_14_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_15_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>STRIP_15_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_15_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>STRIP_15_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_16_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>0</component>
+                    <parameter>STRIP_16_SURFACE_FX_CURVE</parameter>
+                </boundary_condition>
+                <boundary_condition>
+                    <mesh>G3_geometry_STRIP_16_SURFACE</mesh>
+                    <type>Neumann</type>
+                    <component>1</component>
+                    <parameter>STRIP_16_SURFACE_FY_CURVE</parameter>
+                </boundary_condition>
+            </boundary_conditions>
+        </process_variable>
+    </process_variables>
+    <nonlinear_solvers>
+        <nonlinear_solver>
+            <name>petsc_snes</name>
+            <type>PETScSNES</type>
+            <max_iter>50</max_iter>
+            <linear_solver>linear_solver_d</linear_solver>
+        </nonlinear_solver>
+        <nonlinear_solver>
+            <name>basic_newton_d</name>
+            <type>Newton</type>
+            <max_iter>50</max_iter>
+            <linear_solver>linear_solver_d</linear_solver>
+        </nonlinear_solver>
+        <nonlinear_solver>
+            <name>basic_newton_u</name>
+            <type>Newton</type>
+            <max_iter>659</max_iter>
+            <linear_solver>linear_solver_u</linear_solver>
+        </nonlinear_solver>
+        <nonlinear_solver>
+            <name>basic_newton_p</name>
+            <type>Newton</type>
+            <max_iter>500</max_iter>
+            <linear_solver>linear_solver_p</linear_solver>
+        </nonlinear_solver>
+    </nonlinear_solvers>
+    <linear_solvers>
+        <linear_solver>
+            <name>linear_solver_d</name>
+            <eigen>
+                <solver_type>BiCGSTAB</solver_type>
+                <precon_type>ILUT</precon_type>
+                <max_iteration_step>100</max_iteration_step>
+                <error_tolerance>1e-16</error_tolerance>
+            </eigen>
+            <petsc>
+                <parameters>-ksp_type cg -pc_type bjacobi -ksp_atol 1e-10 -ksp_rtol 1e-10 -snes_type vinewtonrsls -snes_linesearch_type l2 -snes_atol 1.e-6 -snes_rtol 1.e-6 -snes_max_it 1000 -snes_monitor </parameters>
+            </petsc>
+        </linear_solver>
+        <linear_solver>
+            <name>linear_solver_u</name>
+            <eigen>
+                <solver_type>BiCGSTAB</solver_type>
+                <precon_type>ILUT</precon_type>
+                <max_iteration_step>10000</max_iteration_step>
+                <error_tolerance>1e-16</error_tolerance>
+            </eigen>
+            <petsc>
+                <prefix>u</prefix>
+                <!-- <parameters>-u_ksp_type cg -u_pc_type bjacobi -u_ksp_atol 1e-8 -u_ksp_rtol 1e-8</parameters> -->
+                <parameters>-u_ksp_type cg -u_pc_type hypre -u_pc_hypre_type boomeramg -u_pc_hypre_boomeramg_strong_threshold 0.7 -u_ksp_atol 1e-8 -u_ksp_rtol 1e-8 </parameters>
+            </petsc>
+        </linear_solver>
+        <linear_solver>
+            <name>linear_solver_p</name>
+            <eigen>
+                <solver_type>BiCGSTAB</solver_type>
+                <precon_type>ILUT</precon_type>
+                <max_iteration_step>10000</max_iteration_step>
+                <error_tolerance>1e-16</error_tolerance>
+            </eigen>
+            <petsc>
+                <prefix>p</prefix>
+                <!-- <parameters>-p_ksp_type cg -p_pc_type jacobi -p_ksp_atol 1e-12 -p_ksp_rtol 1e-12  </parameters> -->
+                <parameters>-p_ksp_type cg -p_pc_type hypre -p_pc_hypre_type boomeramg -p_pc_hypre_boomeramg_strong_threshold 0.7 -p_ksp_atol 1e-8 -p_ksp_rtol 1e-8  </parameters>
+            </petsc>
+        </linear_solver>
+    </linear_solvers>
+</OpenGeoSysProject>
