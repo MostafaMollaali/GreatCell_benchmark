@@ -236,11 +236,43 @@ out2[]=Extrude {0, 0, 0.2} { Surface{8};Layers{20};};
 out3[]=Extrude {0, 0, 0.2} { Surface{3};Layers{20};};
 out4[]=Extrude {0, 0, 0.2} { Surface{4};Layers{20};};
 out5[]=Extrude {0, 0, 0.2} { Surface{5};Layers{20};};
+
+lc_f = 0.005;
+Point(100) = {0.0, 0.0, 0.06, lc_f};
+Point(101) = {0.04, 0.0, 0.06, lc_f};
+Point(102) = {0.04, 0.0, 0.16, lc_f};
+Point(103) = {0.0, 0.0, 0.16, lc_f};
+//+
+Line(504) = {103, 102};
+//+
+Line(505) = {102, 101};
+//+
+Line(506) = {101, 100};
+//+
+Line(507) = {100, 103};
+//+
+Curve Loop(101) = {504, 505, 506, 507};
+//+
+Plane Surface(100) = {101};
+
+
+//+
+Line(508) = {70002, 103};
+//+
+Line(509) = {100, 65};
+
+Surface{100} In Volume{1};
+Line{508,508} In Volume{1};
+
 //out6[]=Extrude {0, 0, 0.2} { Surface{6};Layers{20};};
+
+Physical Volume(1) = {1, 2, 3, 4};
+Physical Surface(2) = {100};
 
 //Physical Volume(1) = {out1[1], out2[1], out3[1], out4[1]};
 //Physical Volume(2) = {out5[1]};//+
 //Transfinite Surface{6};
+
 
 
 
