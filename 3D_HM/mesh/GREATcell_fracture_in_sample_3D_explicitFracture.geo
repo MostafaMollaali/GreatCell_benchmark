@@ -1,6 +1,6 @@
-lc = 0.0075;
-lc1 = 0.01;
-lc2=0.001;
+lc = 0.0075/2;
+lc1 = 0.01/2;
+lc2= 0.01/2; // 0.001;
 r0 = 0.097;//Outer egde of sample
 r1 = 0.090;//Measuring location in sample
 r2 = 0.065;//Inner ring in smaple
@@ -90,7 +90,8 @@ Point(62)={0.0914086774858697,-0.0378627139332354,0,lc};
 Point(63)={0.0969657439491436,-0.0244467687105908,0,lc};
 Point(64)={0.0979528917494459,-0.0194840415895657,0,lc};
 
-Point(65) = { 0, 0, 0, lc2};
+Point(65) = { 0, 0, 0, lc1};
+Point(655) = { 0, 0., 0.2-1e-6, lc1};
 Point(66) = {r0, 0, 0, lc};
 Point(67) = {0, r0, 0, lc};
 Point(68) = {-r0, 0, 0, lc};
@@ -99,7 +100,7 @@ Point(69) = {0, -r0, 0, lc};
 
 
 Point(70) = {r2, 0, 0, lc2};
-Point(70000) = {r3, 0, 0, lc2};
+Point(70000) = {r3, 0, 0, lc1};
 Point(71) = {0., r2, 0, lc2};
 Point(72) = {-r2, 0., 0, lc2};
 Point(73) = {0, -r2, 0, lc2};
@@ -189,8 +190,10 @@ Circle(74) = {74, 65, 77};
 Circle(75) = {75, 65, 76};
 Circle(76) = {76, 65, 77};
 
+
 //Line(77) = {70,72};
 
+/*
 Transfinite Line(1) = segouter Using Progression 1.0;//Outer
 Transfinite Line(2) = segouter Using Progression 1.0;
 Transfinite Line(3) = segouter Using Progression 1.0;
@@ -204,7 +207,7 @@ Transfinite Line(72) = seginner Using Progression 1.0;
 Transfinite Line(73) = segmid Using Progression 1.0;//Mid
 Transfinite Line(74) = segmid Using Progression 1.0;
 Transfinite Line(75) = segmid Using Progression 1.0;
-Transfinite Line(76) = segmid Using Progression 1.0;
+Transfinite Line(76) = segmid Using Progression 1.0;*/
 
 Line Loop(1) = {69, 71, -77};
 Line Loop(2) = {72, -70, 77};
@@ -213,7 +216,7 @@ Line Loop(4) = {5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 2
 Line Loop(5) = {73, 75, 76, -74};
 
 
-Line(77) = {65, 70000};
+//Line(77) = {65, 70000};
 
 
 //+
@@ -228,51 +231,98 @@ Plane Surface(4) = {3,5};
 Plane Surface(5) = {4,3};
 
 
-Line{77} In Surface{8};
+For i In {5:68}
+  Extrude {0, 0, 0.2} {
+      Line{i}; 
+    }
+EndFor
+
+For i In {1:4}
+    Extrude {0, 0, 0.2} {
+      Curve{i}; 
+    }
+EndFor
+For i In {69:76}
+    Extrude {0, 0, 0.2} {
+      Curve{i}; 
+    }
+EndFor
 
 
-out1[]=Extrude {0, 0, 0.2} { Surface{1};Layers{20};};
-out2[]=Extrude {0, 0, 0.2} { Surface{8};Layers{20};};
-out3[]=Extrude {0, 0, 0.2} { Surface{3};Layers{20};};
-out4[]=Extrude {0, 0, 0.2} { Surface{4};Layers{20};};
-out5[]=Extrude {0, 0, 0.2} { Surface{5};Layers{20};};
+//+
+Curve Loop(9) = {133, 137, 141, 145, 149, 153, 157, 161, 165, 169, 173, 177, 181, 185, 189, 193, 197, 201, 205, 209, 213, 217, 221, 225, 229, 233, 237, 241, 245, 249, 253, 257, 261, 265, 269, 273, 277, 281, 285, 289, 293, 297, 301, 305, 309, 313, 317, 321, 325, 329, 77, 81, 85, 89, 93, 97, 101, 105, 109, 113, 117, 121, 125, 129};
+//+
+Curve Loop(10) = {333, 341, 345, -337};
+//+
+Plane Surface(381) = {9, 10};
+//+
+Curve Loop(11) = {377, -369, 365, 373};
+//+
+Plane Surface(382) = {10, 11};
+//+
+Curve Loop(12) = {357, 361, -353, 349};
+//+
+Plane Surface(383) = {12};
+//+
+Plane Surface(384) = {11, 12};
+
+
+Surface Loop(1) = {8, 352, 356, 360, 364, 383};
+
+Volume(1) = {1};
+
+
+Surface Loop(3) = {4, 368, 372, 380, 376,  336, 340, 344, 348, 382};
+//+
+Volume(3) = {3};
+
+
+Surface Loop(2) = {3, 368, 372, 380, 376,  352, 356, 360, 364, 384};
+//+
+Volume(2) = {2};
+
+
+
+Surface Loop(4) = {5, 80, 84, 88, 92, 96, 100, 104, 108, 112, 116, 120, 124, 128, 132, 136, 140, 144, 148, 152, 156, 160, 164, 168, 172, 176, 180, 184, 188, 192, 196, 200, 204, 208, 212, 216, 220, 224, 228, 232, 236, 240, 244, 248, 252, 256, 260, 264, 268, 272, 276, 280, 284, 288, 292, 296, 300, 304, 308, 312, 316, 320, 324, 328, 332, 336, 340, 344, 348, 381};
+
+//+
+Volume(4) = {4};
+
 
 lc_f = 0.005;
-Point(100) = {0.0, 0.0, 0.06, lc_f};
-Point(101) = {0.04, 0.0, 0.06, lc_f};
-Point(102) = {0.04, 0.0, 0.16, lc_f};
-Point(103) = {0.0, 0.0, 0.16, lc_f};
+Point(500) = {0.0, 0.0, 0.06, lc_f};
+Point(501) = {0.04, 0.0, 0.06, lc_f};
+Point(502) = {0.04, 0.0, 0.16, lc_f};
+Point(503) = {0.0, 0.0, 0.16, lc_f};
+Point(504) = {0.0, 0.0, 0.16+1e-7, lc_f};
+Point(505) = {0.02, 0.0, 0.18, lc_f};
 //+
-Line(504) = {103, 102};
+Line(504) = {503, 502};
 //+
-Line(505) = {102, 101};
+Line(505) = {502, 501};
 //+
-Line(506) = {101, 100};
+Line(506) = {501, 500};
 //+
-Line(507) = {100, 103};
+Line(507) = {500, 503};
 //+
-Curve Loop(101) = {504, 505, 506, 507};
+Curve Loop(501) = {504, 505, 506, 507};
 //+
-Plane Surface(100) = {101};
+Plane Surface(500) = {501};
 
 
-//+
-Line(508) = {70002, 103};
-//+
-Line(509) = {100, 65};
+Line(508) = {503, 655};
+Line(509) = {503, 505};
+Line(510) = {505, 655};
 
-Surface{100} In Volume{1};
-Line{508,508} In Volume{1};
+Curve Loop(502) = {509, 510, -508};
+Plane Surface(501) = {502};
 
-//out6[]=Extrude {0, 0, 0.2} { Surface{6};Layers{20};};
+Surface{500} In Volume{1};
+Surface{501} In Volume{1};
+//Curve{508} In Volume{1};
 
 Physical Volume(1) = {1, 2, 3, 4};
-Physical Surface(2) = {100};
-
-//Physical Volume(1) = {out1[1], out2[1], out3[1], out4[1]};
-//Physical Volume(2) = {out5[1]};//+
-//Transfinite Surface{6};
-
-
+//Physical Surface(2) = {500};
+//Physical Surface(3) = {501};
 
 
