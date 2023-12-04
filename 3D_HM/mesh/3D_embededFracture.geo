@@ -359,8 +359,9 @@ Surface Loop(6) = {507, 352, 501, 506, 505, 504, 503, 500, 502, 509};
 //+
 Volume(6) = {6};
 
-Physical Volume(1) = {2, 3, 4, 5, 6};
-Physical Surface(2) = {500};
+Physical Volume(1) = {2, 3, 5, 6};
+Physical Volume(2) = {4};
+Physical Surface(3) = {500};
 
 
 
