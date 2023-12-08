@@ -121,7 +121,7 @@
         </output>
     </time_loop>
     <parameters>
-        <parameter>
+        <!-- <parameter>
             <name>E</name>
             <type>Constant</type>
             <value>3.85e9</value>
@@ -130,6 +130,16 @@
             <name>nu</name>
             <type>Constant</type>
             <value>0.4</value>
+        </parameter> -->
+        <parameter>
+            <name>E</name>
+            <type>MeshElement</type>
+            <field_name>E</field_name>
+        </parameter>
+        <parameter>
+            <name>nu</name>
+            <type>MeshElement</type>
+            <field_name>nu</field_name>
         </parameter>
         <parameter>
             <name>k</name>
@@ -404,167 +414,167 @@
         <curve>
             <name>TOP_SURFACE_DZ_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>-0.0 -0.0 -0.0 -0.0 -10000000.0</values>
+            <values>-0.0 -10000000.0 -10000000.0 -10000000.0 -10000000.0</values>
         </curve>
         <curve>
             <name>BAG_1_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -7710000.0 -7710000.0 -7710000.0 -7710000.0</values>
+            <values>0.0 0.0 0.0 -7730000.0 -7730000.0</values>
         </curve>
         <curve>
             <name>BAG_2_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -7700000.0 -7700000.0 -7700000.0 -7700000.0</values>
+            <values>0.0 0.0 0.0 -5700000.0 -5700000.0</values>
         </curve>
         <curve>
             <name>BAG_3_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -8300000.0 -8300000.0 -8300000.0 -8300000.0</values>
+            <values>0.0 0.0 0.0 -4390000.0 -4390000.0</values>
         </curve>
         <curve>
             <name>BAG_4_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -7800000.0 -7800000.0 -7800000.0 -7800000.0</values>
+            <values>0.0 0.0 0.0 -2400000.0 -2400000.0</values>
         </curve>
         <curve>
             <name>BAG_5_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -7740000.0 -7740000.0 -7740000.0 -7740000.0</values>
+            <values>0.0 0.0 0.0 -2300000.0 -2300000.0</values>
         </curve>
         <curve>
             <name>BAG_6_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -7700000.0 -7700000.0 -7700000.0 -7700000.0</values>
+            <values>0.0 0.0 0.0 -4000000.0 -4000000.0</values>
         </curve>
         <curve>
             <name>BAG_7_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -8300000.0 -8300000.0 -8300000.0 -8300000.0</values>
+            <values>0.0 0.0 0.0 -6400000.0 -6400000.0</values>
         </curve>
         <curve>
             <name>BAG_8_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -7720000.0 -7720000.0 -7720000.0 -7720000.0</values>
+            <values>0.0 0.0 0.0 -7700000.0 -7700000.0</values>
         </curve>
         <curve>
             <name>BAG_9_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -7710000.0 -7710000.0 -7710000.0 -7710000.0</values>
+            <values>0.0 0.0 0.0 -7730000.0 -7730000.0</values>
         </curve>
         <curve>
             <name>BAG_10_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -7700000.0 -7700000.0 -7700000.0 -7700000.0</values>
+            <values>0.0 0.0 0.0 -5700000.0 -5700000.0</values>
         </curve>
         <curve>
             <name>BAG_11_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -8300000.0 -8300000.0 -8300000.0 -8300000.0</values>
+            <values>0.0 0.0 0.0 -4390000.0 -4390000.0</values>
         </curve>
         <curve>
             <name>BAG_12_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -7800000.0 -7800000.0 -7800000.0 -7800000.0</values>
+            <values>0.0 0.0 0.0 -2400000.0 -2400000.0</values>
         </curve>
         <curve>
             <name>BAG_13_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -7740000.0 -7740000.0 -7740000.0 -7740000.0</values>
+            <values>0.0 0.0 0.0 -2300000.0 -2300000.0</values>
         </curve>
         <curve>
             <name>BAG_14_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -7700000.0 -7700000.0 -7700000.0 -7700000.0</values>
+            <values>0.0 0.0 0.0 -4000000.0 -4000000.0</values>
         </curve>
         <curve>
             <name>BAG_15_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -8300000.0 -8300000.0 -8300000.0 -8300000.0</values>
+            <values>0.0 0.0 0.0 -6400000.0 -6400000.0</values>
         </curve>
         <curve>
             <name>BAG_16_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -7720000.0 -7720000.0 -7720000.0 -7720000.0</values>
+            <values>0.0 0.0 0.0 -7700000.0 -7700000.0</values>
         </curve>
         <curve>
             <name>STRIP_1_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -7705000.0 -7705000.0 -7705000.0 -7705000.0</values>
+            <values>0.0 0.0 0.0 -6715000.0 -6715000.0</values>
         </curve>
         <curve>
             <name>STRIP_2_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -8000000.0 -8000000.0 -8000000.0 -8000000.0</values>
+            <values>0.0 0.0 0.0 -5045000.0 -5045000.0</values>
         </curve>
         <curve>
             <name>STRIP_3_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -8050000.0 -8050000.0 -8050000.0 -8050000.0</values>
+            <values>0.0 0.0 0.0 -3395000.0 -3395000.0</values>
         </curve>
         <curve>
             <name>STRIP_4_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -7770000.0 -7770000.0 -7770000.0 -7770000.0</values>
+            <values>0.0 0.0 0.0 -2350000.0 -2350000.0</values>
         </curve>
         <curve>
             <name>STRIP_5_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -7720000.0 -7720000.0 -7720000.0 -7720000.0</values>
+            <values>0.0 0.0 0.0 -3150000.0 -3150000.0</values>
         </curve>
         <curve>
             <name>STRIP_6_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -8000000.0 -8000000.0 -8000000.0 -8000000.0</values>
+            <values>0.0 0.0 0.0 -5200000.0 -5200000.0</values>
         </curve>
         <curve>
             <name>STRIP_7_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -8010000.0 -8010000.0 -8010000.0 -8010000.0</values>
+            <values>0.0 0.0 0.0 -7050000.0 -7050000.0</values>
         </curve>
         <curve>
             <name>STRIP_8_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -7715000.0 -7715000.0 -7715000.0 -7715000.0</values>
+            <values>0.0 0.0 0.0 -7715000.0 -7715000.0</values>
         </curve>
         <curve>
             <name>STRIP_9_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -7705000.0 -7705000.0 -7705000.0 -7705000.0</values>
+            <values>0.0 0.0 0.0 -6715000.0 -6715000.0</values>
         </curve>
         <curve>
             <name>STRIP_10_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -8000000.0 -8000000.0 -8000000.0 -8000000.0</values>
+            <values>0.0 0.0 0.0 -5045000.0 -5045000.0</values>
         </curve>
         <curve>
             <name>STRIP_11_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -8050000.0 -8050000.0 -8050000.0 -8050000.0</values>
+            <values>0.0 0.0 0.0 -3395000.0 -3395000.0</values>
         </curve>
         <curve>
             <name>STRIP_12_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -7770000.0 -7770000.0 -7770000.0 -7770000.0</values>
+            <values>0.0 0.0 0.0 -2350000.0 -2350000.0</values>
         </curve>
         <curve>
             <name>STRIP_13_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -7720000.0 -7720000.0 -7720000.0 -7720000.0</values>
+            <values>0.0 0.0 0.0 -3150000.0 -3150000.0</values>
         </curve>
         <curve>
             <name>STRIP_14_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -8000000.0 -8000000.0 -8000000.0 -8000000.0</values>
+            <values>0.0 0.0 0.0 -5200000.0 -5200000.0</values>
         </curve>
         <curve>
             <name>STRIP_15_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -8010000.0 -8010000.0 -8010000.0 -8010000.0</values>
+            <values>0.0 0.0 0.0 -7050000.0 -7050000.0</values>
         </curve>
         <curve>
             <name>STRIP_16_SURFACE_CURVE</name>
             <coords>0 1 2 3 4</coords>
-            <values>0.0 -7715000.0 -7715000.0 -7715000.0 -7715000.0</values>
+            <values>0.0 0.0 0.0 -7715000.0 -7715000.0</values>
         </curve>
     </curves>
     <process_variables>
