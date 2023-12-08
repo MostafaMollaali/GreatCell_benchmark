@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <OpenGeoSysProject>
     <meshes>
-        <mesh>3D_embededFracture_q.vtu</mesh>
+        <mesh>3D_embededFracture.vtu</mesh>
         <mesh>G3_geometry_borehole.vtu</mesh>
         <mesh>G3_geometry_STRIP_1_SURFACE.vtu</mesh>
         <mesh>G3_geometry_STRIP_2_SURFACE.vtu</mesh>
@@ -104,7 +104,7 @@
                 <convergence_criterion>
                     <type>PerComponentResidual</type>
                     <norm_type>NORM2</norm_type>
-                    <abstols>1e-18 1e-7 1e-5 1e-7 1e-8 1e-6 1e-8</abstols>
+                    <abstols>1e-10 1e-7 1e-5 1e-7 1e-8 1e-6 1e-8</abstols>
                 </convergence_criterion>
                 <time_discretization>
                     <type>BackwardEuler</type>
@@ -126,6 +126,7 @@
             <type>VTK</type>
             <prefix>GreatCell_3D</prefix>
             <variables>
+                <variable>MaterialIDs</variable>
                 <variable>pressure</variable>
                 <variable>pressure_interpolated</variable>
                 <variable>displacement</variable>
@@ -145,6 +146,16 @@
                 <variable>stress_xz</variable>
                 <variable>stress_yz</variable>
                 <variable>velocity</variable>
+                <variable>k_f</variable>
+                <variable>aperture</variable>
+                <variable>f_stress_n</variable>
+                <variable>f_stress_s</variable>
+                <variable>f_stress_s2</variable>
+                <variable>w_n</variable>
+                <variable>w_s</variable>
+                <variable>w_s2</variable>
+                <variable>f_shear_failure</variable>
+                <variable>levelset1</variable>
             </variables>
             <output_iteration_results>false</output_iteration_results>
             <timesteps>
@@ -246,12 +257,12 @@
         <parameter>
             <name>effective_stress0</name>
             <type>Constant</type>
-            <values>-13e6 -39e6 -13e6 0 0 0 </values>
+            <values>-9e6 -9e6 -10e6 0 0 0 </values>
         </parameter>
         <parameter>
             <name>fracture_effective_stress0</name>
             <type>Constant</type>
-            <values>0 0 -39e6</values>
+            <values>0 0 -9e6</values>
         </parameter>
         <!-- initial values -->
         <parameter>
@@ -278,9 +289,10 @@
         <parameter>
             <name>p_injection_rate</name>
             <type>Constant</type>
-            <!-- injecttion rate q = 0.41667 ml/s = 0.41667 * 1.e-6 m^3/s -->
+            <!-- injection rate q = 0.41667 ml/s = 0.41667 * 1.e-6 m^3/s -->
             <!-- value = rho_w * q /dl= 1000 *  0.41667e-6 /0.1-->
-            <values>0.0041667</values>
+            <values>0.0</values>
+            <!--values>0.0041667</values-->
         </parameter>
         <parameter>
             <name>loading</name>
@@ -660,7 +672,7 @@
             <order>1</order>
             <initial_condition>p0</initial_condition>
             <boundary_conditions>
-                <boundary_condition>
+                <!--boundary_condition>
                     <mesh>G3_geometry_fracture_right</mesh>
                     <type>Dirichlet</type>
                     <component>0</component>
@@ -672,7 +684,7 @@
                     <component>0</component>
                     <area_parameter>f_thickness</area_parameter>
                     <parameter>p_injection_rate</parameter>
-                </boundary_condition>
+                </boundary_condition-->
             </boundary_conditions>
             <!--deactivated_subdomains>
                 <deactivated_subdomain>
@@ -687,7 +699,7 @@
         <process_variable>
             <name>displacement</name>
             <components>3</components>
-            <order>2</order>
+            <order>1</order>
             <initial_condition>u0</initial_condition>
             <boundary_conditions>
                 <boundary_condition>
@@ -891,10 +903,10 @@
         <process_variable>
             <name>displacement_jump1</name>
             <components>3</components>
-            <order>2</order>
+            <order>1</order>
             <initial_condition>u0</initial_condition>
             <boundary_conditions>
-                <boundary_condition>
+                <!--boundary_condition>
                     <mesh>G3_geometry_fracture_right</mesh>
                     <type>Dirichlet</type>
                     <component>0</component>
@@ -905,7 +917,7 @@
                     <type>Dirichlet</type>
                     <component>0</component>
                     <parameter>zero</parameter>
-                </boundary_condition>
+                </boundary_condition-->
                 <boundary_condition>
                     <mesh>G3_geometry_fracture_bottom</mesh>
                     <type>Dirichlet</type>
