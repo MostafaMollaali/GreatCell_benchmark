@@ -50,7 +50,7 @@
         <process>
             <name>HM</name>
             <type>HYDRO_MECHANICS_WITH_LIE</type>
-            <integration_order>3</integration_order>
+            <integration_order>4</integration_order>
             <constitutive_relation id="1">
                 <type>LinearElasticIsotropic</type>
                 <youngs_modulus>E1</youngs_modulus>
@@ -68,6 +68,12 @@
                 <process_variable>displacement_jump1</process_variable>
             </process_variables>
             <secondary_variables>
+                <secondary_variable internal_name="sigma" output_name="sigma"/>
+                <secondary_variable internal_name="epsilon" output_name="epsilon"/>
+                <secondary_variable internal_name="velocity" output_name="velocity"/>
+                <secondary_variable internal_name="extrapolated_fracture_aperture" output_name="fracture_aperture"/>
+                <secondary_variable internal_name="extrapolated_fracture_permeability" output_name="fracture_permeability"/>
+                <secondary_variable internal_name="fracture_stress" output_name="fracture_stress"/>
             </secondary_variables>
             <intrinsic_permeability>k</intrinsic_permeability>
             <specific_storage>S</specific_storage>
@@ -104,21 +110,22 @@
                 <convergence_criterion>
                     <type>PerComponentResidual</type>
                     <norm_type>NORM2</norm_type>
-                    <abstols>1e-10 1e-7 1e-5 1e-7 1e-8 1e-6 1e-8</abstols>
+                    <!--reltols>1e-6 1e-9 1e-9 1e-9 1e-10 1e-10 1e-10</reltols-->
+                    <abstols>1e-10 1e-10 1e-10 1e-10 1e-10 1e-10 1e-10</abstols>
                 </convergence_criterion>
                 <time_discretization>
                     <type>BackwardEuler</type>
                 </time_discretization>
                 <time_stepping>
-                    <type>FixedTimeStepping</type>
+                    <type>IterationNumberBasedTimeStepping</type>
                     <t_initial>0</t_initial>
-                    <t_end>4</t_end>
-                    <timesteps>
-                        <pair>
-                            <repeat>1</repeat>
-                            <delta_t>1.0</delta_t>
-                        </pair>
-                    </timesteps>
+                    <!--1000 s-->
+                    <t_end>1e4</t_end>
+                    <initial_dt>10</initial_dt>
+                    <minimum_dt>10</minimum_dt>
+                    <maximum_dt>100</maximum_dt>
+                    <number_iterations>1 2 5 10  20</number_iterations>
+                    <multiplier>       1.6 1.4 1.0 0.7 0.5</multiplier>
                 </time_stepping>
             </process>
         </processes>
@@ -133,35 +140,28 @@
                 <variable>displacement_jump1</variable>
                 <variable>nodal_w</variable>
                 <variable>nodal_aperture</variable>
-                <variable>strain_xx</variable>
-                <variable>strain_yy</variable>
-                <variable>strain_zz</variable>
-                <variable>strain_xy</variable>
-                <variable>strain_xz</variable>
-                <variable>strain_yz</variable>
-                <variable>stress_xx</variable>
-                <variable>stress_yy</variable>
-                <variable>stress_zz</variable>
-                <variable>stress_xy</variable>
-                <variable>stress_xz</variable>
-                <variable>stress_yz</variable>
                 <variable>velocity</variable>
+                <variable>fracture_stress</variable>
+                <variable>fracture_aperture</variable>
+                <variable>fracture_permeability</variable>
+                <variable>sigma</variable>
+                <variable>epsilon</variable>
                 <variable>k_f</variable>
                 <variable>aperture</variable>
                 <variable>f_stress_n</variable>
                 <variable>f_stress_s</variable>
                 <variable>f_stress_s2</variable>
                 <variable>w_n</variable>
-                <variable>w_s</variable>
+                <!--variable>w_s</variable>
                 <variable>w_s2</variable>
                 <variable>f_shear_failure</variable>
-                <variable>levelset1</variable>
+                <variable>levelset1</variable-->
             </variables>
             <output_iteration_results>false</output_iteration_results>
             <timesteps>
                 <pair>
-                    <repeat>1</repeat>
-                    <each_steps>1</each_steps>
+                    <repeat>100</repeat>
+                    <each_steps>4</each_steps>
                 </pair>
             </timesteps>
         </output>
@@ -211,12 +211,12 @@
         <parameter>
             <name>k</name>
             <type>Constant</type>
-            <value>1e-20</value>
+            <value>1e-8</value>
         </parameter>
         <parameter>
             <name>S</name>
             <type>Constant</type>
-            <value>1e-10</value>
+            <value>0.0</value>
         </parameter>
         <parameter>
             <name>biot_m</name>
@@ -236,7 +236,7 @@
         </parameter>
         <parameter>
             <name>S_f</name>
-            <type>Constant</type>
+            <type>Constant</type> 	
             <value>1e-12</value>
         </parameter>
         <parameter>
@@ -258,17 +258,19 @@
             <name>effective_stress0</name>
             <type>Constant</type>
             <values>-9e6 -9e6 -10e6 0 0 0 </values>
+            <!--values>0.0 0.0 0.0 0 0 0 </values-->
         </parameter>
         <parameter>
             <name>fracture_effective_stress0</name>
             <type>Constant</type>
-            <values>0 0 -9e6</values>
+            <values>0 0 -2e6</values>
+            <!--values>0 0 0.0</values-->
         </parameter>
         <!-- initial values -->
         <parameter>
             <name>p0</name>
             <type>Constant</type>
-            <values>1e5</values>
+            <values>2e6</values>
         </parameter>
         <parameter>
             <name>u0</name>
@@ -290,9 +292,9 @@
             <name>p_injection_rate</name>
             <type>Constant</type>
             <!-- injection rate q = 0.41667 ml/s = 0.41667 * 1.e-6 m^3/s -->
-            <!-- value = rho_w * q /dl= 1000 *  0.41667e-6 /0.1-->
-            <values>0.0</values>
-            <!--values>0.0041667</values-->
+            <!-- value = b * q / (dl *b)= 0.41667e-6 /0.1-->
+            <!--values>0.0</values-->
+            <values>0.41667e-5</values>
         </parameter>
         <parameter>
             <name>loading</name>
@@ -672,7 +674,7 @@
             <order>1</order>
             <initial_condition>p0</initial_condition>
             <boundary_conditions>
-                <!--boundary_condition>
+                <boundary_condition>
                     <mesh>G3_geometry_fracture_right</mesh>
                     <type>Dirichlet</type>
                     <component>0</component>
@@ -684,7 +686,7 @@
                     <component>0</component>
                     <area_parameter>f_thickness</area_parameter>
                     <parameter>p_injection_rate</parameter>
-                </boundary_condition-->
+                </boundary_condition>
             </boundary_conditions>
             <!--deactivated_subdomains>
                 <deactivated_subdomain>
@@ -906,7 +908,7 @@
             <order>1</order>
             <initial_condition>u0</initial_condition>
             <boundary_conditions>
-                <!--boundary_condition>
+                <boundary_condition>
                     <mesh>G3_geometry_fracture_right</mesh>
                     <type>Dirichlet</type>
                     <component>0</component>
@@ -917,7 +919,7 @@
                     <type>Dirichlet</type>
                     <component>0</component>
                     <parameter>zero</parameter>
-                </boundary_condition-->
+                </boundary_condition>
                 <boundary_condition>
                     <mesh>G3_geometry_fracture_bottom</mesh>
                     <type>Dirichlet</type>
