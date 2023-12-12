@@ -2562,7 +2562,7 @@
    <pnt>319</pnt>
    <pnt>256</pnt>
   </polyline>
-  <polyline id="34">
+  <polyline name="MIDDLE_BAG1" id="34">
    <pnt>1</pnt>
    <pnt>65</pnt>
    <pnt>129</pnt>
@@ -2618,7 +2618,7 @@
    <pnt>207</pnt>
    <pnt>271</pnt>
   </polyline>
-  <polyline id="42">
+  <polyline name="MIDDLE_BAG13" id="42">
    <pnt>17</pnt>
    <pnt>81</pnt>
    <pnt>145</pnt>
@@ -2674,7 +2674,7 @@
    <pnt>223</pnt>
    <pnt>287</pnt>
   </polyline>
-  <polyline id="50">
+  <polyline name="MIDDLE_BAG9" id="50">
    <pnt>33</pnt>
    <pnt>97</pnt>
    <pnt>161</pnt>
@@ -2730,7 +2730,7 @@
    <pnt>239</pnt>
    <pnt>303</pnt>
   </polyline>
-  <polyline id="58">
+  <polyline name="MIDDLE_BAG5" id="58">
    <pnt>49</pnt>
    <pnt>113</pnt>
    <pnt>177</pnt>
