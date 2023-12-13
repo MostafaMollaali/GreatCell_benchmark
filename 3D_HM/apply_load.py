@@ -72,59 +72,81 @@ def main():
         load_values = [0] * 8
         output_file_name_base = "great_cell_HM2_test"
         # Case B
-        load_values[0] = 30e6
-        load_values[1] = 43e6
-        load_values[2] = 56e6
-        load_values[3] = 70e6
-        load_values[4] = 70e6
-        load_values[5] = 56e6
-        load_values[6] = 43e6
-        load_values[7] = 30e6
+        load_values[0] = 8.8e6
+        load_values[1] = 8.8e6
+        load_values[2] = 9.2e6
+        load_values[3] = 9.0e6
+        load_values[4] = 8.9e6
+        load_values[5] = 8.7e6
+        load_values[6] = 9.3e6
+        load_values[7] = 8.7e6
         apply_load(input_file, output_file_name_base + "_B.prj", load_values)
 
         # Case C
-        load_values[0] = 43e6
-        load_values[1] = 56e6
-        load_values[2] = 70e6
-        load_values[3] = 70e6
-        load_values[4] = 56e6
-        load_values[5] = 43e6
-        load_values[6] = 30e6
-        load_values[7] = 30e6
+        load_values[0] =  7.1e6
+        load_values[1] =  6.3e6
+        load_values[2] =  6.3e6
+        load_values[3] =  6.9e6
+        load_values[4] =  7.9e6
+        load_values[5] =  8.7e6
+        load_values[6] =  8.8e6
+        load_values[7] =  7.8e6
         apply_load(input_file, output_file_name_base + "_C.prj", load_values)
 
         # Case D
-        load_values[0] = 56e6
-        load_values[1] = 70e6
-        load_values[2] = 70e6
-        load_values[3] = 56e6
-        load_values[4] = 43e6
-        load_values[5] = 30e6
-        load_values[6] = 30e6
-        load_values[7] = 43e6
+        load_values[0] = 7.7e6
+        load_values[1] = 8.7e6
+        load_values[2] = 8.7e6
+        load_values[3] = 7.7e6
+        load_values[4] = 7.3e6
+        load_values[5] = 6.3e6
+        load_values[6] = 6.3e6
+        load_values[7] = 6.6e6
         apply_load(input_file, output_file_name_base + "_D.prj", load_values)
 
         # Case E
-        load_values[0] = 70e6
-        load_values[1] = 70e6
-        load_values[2] = 56e6
-        load_values[3] = 43e6
-        load_values[4] = 30e6
-        load_values[5] = 30e6
-        load_values[6] = 43e6
-        load_values[7] = 56e6
+        load_values[0] = 7.2e6
+        load_values[1] = 8.2e6
+        load_values[2] = 8.7e6
+        load_values[3] = 8.7e6
+        load_values[4] = 7.8e6
+        load_values[5] = 6.8e6
+        load_values[6] = 6.3e6
+        load_values[7] = 6.2e6
         apply_load(input_file, output_file_name_base + "_E.prj", load_values)
 
         # Case F
-        load_values[0] = 70e6
-        load_values[1] = 56e6
-        load_values[2] = 43e6
-        load_values[3] = 30e6
-        load_values[4] = 30e6
-        load_values[5] = 43e6
-        load_values[6] = 56e6
-        load_values[7] = 70e6
+        load_values[0] = 6.2e6
+        load_values[1] = 7.2e6
+        load_values[2] = 8.3e6
+        load_values[3] = 8.7e6
+        load_values[4] = 8.7e6
+        load_values[5] = 7.7e6
+        load_values[6] = 6.9e6
+        load_values[7] = 6.3e6
         apply_load(input_file, output_file_name_base + "_F.prj", load_values)
+
+        # Case G
+        load_values[0] = 6.2e6
+        load_values[1] = 6.2e6
+        load_values[2] = 7.3e6
+        load_values[3] = 8.1e6
+        load_values[4] = 8.7e6
+        load_values[5] = 8.7e6
+        load_values[6] = 7.8e6
+        load_values[7] = 6.7e6
+        apply_load(input_file, output_file_name_base + "_G.prj", load_values)
+
+        # Case H
+        load_values[0] = 6.8e6
+        load_values[1] = 6.4e6
+        load_values[2] = 6.9e6
+        load_values[3] = 7.5e6
+        load_values[4] = 8.2e6
+        load_values[5] = 8.7e6
+        load_values[6] = 8.3e6
+        load_values[7] = 7.2e6
+        apply_load(input_file, output_file_name_base + "_H.prj", load_values)
 
         print('The loads are applied successfully!')
     except FileNotFoundError:
