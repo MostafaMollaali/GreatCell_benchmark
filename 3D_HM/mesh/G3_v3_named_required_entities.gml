@@ -1943,12 +1943,12 @@
   <point x="0." id="1931" z="0.06" y="0.0" />
  </points>
  <polylines>
-    <polyline id="300">
+    <polyline name="borehole" id="300">
        <pnt>1030</pnt>
        <pnt>1031</pnt>
    </polyline>
  
-  <polyline id="0">
+  <polyline name="BAG_1" id="0">
    <pnt>0</pnt>
    <pnt>64</pnt>
    <pnt>128</pnt>
@@ -1963,7 +1963,7 @@
    <pnt>1</pnt>
    <pnt>0</pnt>
   </polyline>
-  <polyline id="1">
+  <polyline name="STRIP_16" id="1">
    <pnt>2</pnt>
    <pnt>66</pnt>
    <pnt>130</pnt>
@@ -1978,7 +1978,7 @@
    <pnt>3</pnt>
    <pnt>2</pnt>
   </polyline>
-  <polyline id="2">
+  <polyline name="BAG_16" id="2">
    <pnt>4</pnt>
    <pnt>68</pnt>
    <pnt>132</pnt>
@@ -1993,7 +1993,7 @@
    <pnt>5</pnt>
    <pnt>4</pnt>
   </polyline>
-  <polyline id="3">
+  <polyline name="STRIP_15" id="3">
    <pnt>6</pnt>
    <pnt>70</pnt>
    <pnt>134</pnt>
@@ -2008,7 +2008,7 @@
    <pnt>7</pnt>
    <pnt>6</pnt>
   </polyline>
-  <polyline id="4">
+  <polyline name="BAG_15" id="4">
    <pnt>8</pnt>
    <pnt>72</pnt>
    <pnt>136</pnt>
@@ -2023,7 +2023,7 @@
    <pnt>9</pnt>
    <pnt>8</pnt>
   </polyline>
-  <polyline id="5">
+  <polyline name="STRIP_14" id="5">
    <pnt>10</pnt>
    <pnt>74</pnt>
    <pnt>138</pnt>
@@ -2038,7 +2038,7 @@
    <pnt>11</pnt>
    <pnt>10</pnt>
   </polyline>
-  <polyline id="6">
+  <polyline name="BAG_14" id="6">
    <pnt>12</pnt>
    <pnt>76</pnt>
    <pnt>140</pnt>
@@ -2053,7 +2053,7 @@
    <pnt>13</pnt>
    <pnt>12</pnt>
   </polyline>
-  <polyline id="7">
+  <polyline name="STRIP_13" id="7">
    <pnt>14</pnt>
    <pnt>78</pnt>
    <pnt>142</pnt>
@@ -2068,7 +2068,7 @@
    <pnt>15</pnt>
    <pnt>14</pnt>
   </polyline>
-  <polyline id="8">
+  <polyline name="BAG_13" id="8">
    <pnt>16</pnt>
    <pnt>80</pnt>
    <pnt>144</pnt>
@@ -2083,7 +2083,7 @@
    <pnt>17</pnt>
    <pnt>16</pnt>
   </polyline>
-  <polyline id="9">
+  <polyline name="STRIP_12" id="9">
    <pnt>18</pnt>
    <pnt>82</pnt>
    <pnt>146</pnt>
@@ -2098,7 +2098,7 @@
    <pnt>19</pnt>
    <pnt>18</pnt>
   </polyline>
-  <polyline id="10">
+  <polyline name="BAG_12" id="10">
    <pnt>20</pnt>
    <pnt>84</pnt>
    <pnt>148</pnt>
@@ -2113,7 +2113,7 @@
    <pnt>21</pnt>
    <pnt>20</pnt>
   </polyline>
-  <polyline id="11">
+  <polyline name="STRIP_11" id="11">
    <pnt>22</pnt>
    <pnt>86</pnt>
    <pnt>150</pnt>
@@ -2128,7 +2128,7 @@
    <pnt>23</pnt>
    <pnt>22</pnt>
   </polyline>
-  <polyline id="12">
+  <polyline name="BAG_11" id="12">
    <pnt>24</pnt>
    <pnt>88</pnt>
    <pnt>152</pnt>
@@ -2143,7 +2143,7 @@
    <pnt>25</pnt>
    <pnt>24</pnt>
   </polyline>
-  <polyline id="13">
+  <polyline name="STRIP_10" id="13">
    <pnt>26</pnt>
    <pnt>90</pnt>
    <pnt>154</pnt>
@@ -2158,7 +2158,7 @@
    <pnt>27</pnt>
    <pnt>26</pnt>
   </polyline>
-  <polyline id="14">
+  <polyline name="BAG_10" id="14">
    <pnt>28</pnt>
    <pnt>92</pnt>
    <pnt>156</pnt>
@@ -2173,7 +2173,7 @@
    <pnt>29</pnt>
    <pnt>28</pnt>
   </polyline>
-  <polyline id="15">
+  <polyline name="STRIP_9" id="15">
    <pnt>30</pnt>
    <pnt>94</pnt>
    <pnt>158</pnt>
@@ -2188,7 +2188,7 @@
    <pnt>31</pnt>
    <pnt>30</pnt>
   </polyline>
-  <polyline id="16">
+  <polyline name="BAG_9" id="16">
    <pnt>32</pnt>
    <pnt>96</pnt>
    <pnt>160</pnt>
@@ -2203,7 +2203,7 @@
    <pnt>33</pnt>
    <pnt>32</pnt>
   </polyline>
-  <polyline id="17">
+  <polyline name="STRIP_8" id="17">
    <pnt>34</pnt>
    <pnt>98</pnt>
    <pnt>162</pnt>
@@ -2218,7 +2218,7 @@
    <pnt>35</pnt>
    <pnt>34</pnt>
   </polyline>
-  <polyline id="18">
+  <polyline name="BAG_8" id="18">
    <pnt>36</pnt>
    <pnt>100</pnt>
    <pnt>164</pnt>
@@ -2233,7 +2233,7 @@
    <pnt>37</pnt>
    <pnt>36</pnt>
   </polyline>
-  <polyline id="19">
+  <polyline name="STRIP_7" id="19">
    <pnt>38</pnt>
    <pnt>102</pnt>
    <pnt>166</pnt>
@@ -2248,7 +2248,7 @@
    <pnt>39</pnt>
    <pnt>38</pnt>
   </polyline>
-  <polyline id="20">
+  <polyline name="BAG_7" id="20">
    <pnt>40</pnt>
    <pnt>104</pnt>
    <pnt>168</pnt>
@@ -2263,7 +2263,7 @@
    <pnt>41</pnt>
    <pnt>40</pnt>
   </polyline>
-  <polyline id="21">
+  <polyline name="STRIP_6" id="21">
    <pnt>42</pnt>
    <pnt>106</pnt>
    <pnt>170</pnt>
@@ -2278,7 +2278,7 @@
    <pnt>43</pnt>
    <pnt>42</pnt>
   </polyline>
-  <polyline id="22">
+  <polyline name="BAG_6" id="22">
    <pnt>44</pnt>
    <pnt>108</pnt>
    <pnt>172</pnt>
@@ -2293,7 +2293,7 @@
    <pnt>45</pnt>
    <pnt>44</pnt>
   </polyline>
-  <polyline id="23">
+  <polyline name="STRIP_5" id="23">
    <pnt>46</pnt>
    <pnt>110</pnt>
    <pnt>174</pnt>
@@ -2308,7 +2308,7 @@
    <pnt>47</pnt>
    <pnt>46</pnt>
   </polyline>
-  <polyline id="24">
+  <polyline name="BAG_5" id="24">
    <pnt>48</pnt>
    <pnt>112</pnt>
    <pnt>176</pnt>
@@ -2323,7 +2323,7 @@
    <pnt>49</pnt>
    <pnt>48</pnt>
   </polyline>
-  <polyline id="25">
+  <polyline name="STRIP_4" id="25">
    <pnt>50</pnt>
    <pnt>114</pnt>
    <pnt>178</pnt>
@@ -2338,7 +2338,7 @@
    <pnt>51</pnt>
    <pnt>50</pnt>
   </polyline>
-  <polyline id="26">
+  <polyline name="BAG_4" id="26">
    <pnt>52</pnt>
    <pnt>116</pnt>
    <pnt>180</pnt>
@@ -2353,7 +2353,7 @@
    <pnt>53</pnt>
    <pnt>52</pnt>
   </polyline>
-  <polyline id="27">
+  <polyline name="STRIP_3" id="27">
    <pnt>54</pnt>
    <pnt>118</pnt>
    <pnt>182</pnt>
@@ -2368,7 +2368,7 @@
    <pnt>55</pnt>
    <pnt>54</pnt>
   </polyline>
-  <polyline id="28">
+  <polyline name="BAG_3" id="28">
    <pnt>56</pnt>
    <pnt>120</pnt>
    <pnt>184</pnt>
@@ -2383,7 +2383,7 @@
    <pnt>57</pnt>
    <pnt>56</pnt>
   </polyline>
-  <polyline id="29">
+  <polyline name="STRIP_2" id="29">
    <pnt>58</pnt>
    <pnt>122</pnt>
    <pnt>186</pnt>
@@ -2398,7 +2398,7 @@
    <pnt>59</pnt>
    <pnt>58</pnt>
   </polyline>
-  <polyline id="30">
+  <polyline name="BAG_2" id="30">
    <pnt>60</pnt>
    <pnt>124</pnt>
    <pnt>188</pnt>
@@ -2413,7 +2413,7 @@
    <pnt>61</pnt>
    <pnt>60</pnt>
   </polyline>
-  <polyline id="31">
+  <polyline name="STRIP_1" id="31">
    <pnt>62</pnt>
    <pnt>126</pnt>
    <pnt>190</pnt>
@@ -2428,7 +2428,7 @@
    <pnt>63</pnt>
    <pnt>62</pnt>
   </polyline>
-  <polyline id="32">
+  <polyline name="BASE_PLY" id="32">
    <pnt>0</pnt>
    <pnt>1</pnt>
    <pnt>2</pnt>
@@ -2495,7 +2495,7 @@
    <pnt>63</pnt>
    <pnt>0</pnt>
   </polyline>
-  <polyline id="33">
+  <polyline name="TOP_PLY" id="33">
    <pnt>256</pnt>
    <pnt>257</pnt>
    <pnt>258</pnt>
@@ -2569,49 +2569,49 @@
    <pnt>193</pnt>
    <pnt>257</pnt>
   </polyline>
-  <polyline id="35">
+  <polyline name="MIDDLE_STRIP16" id="35">
    <pnt>3</pnt>
    <pnt>67</pnt>
    <pnt>131</pnt>
    <pnt>195</pnt>
    <pnt>259</pnt>
   </polyline>
-  <polyline id="36">
+  <polyline name="MIDDLE_BAG16" id="36">
    <pnt>5</pnt>
    <pnt>69</pnt>
    <pnt>133</pnt>
    <pnt>197</pnt>
    <pnt>261</pnt>
   </polyline>
-  <polyline id="37">
+  <polyline name="MIDDLE_STRIP15" id="37">
    <pnt>7</pnt>
    <pnt>71</pnt>
    <pnt>135</pnt>
    <pnt>199</pnt>
    <pnt>263</pnt>
   </polyline>
-  <polyline id="38">
+  <polyline name="MIDDLE_BAG15" id="38">
    <pnt>9</pnt>
    <pnt>73</pnt>
    <pnt>137</pnt>
    <pnt>201</pnt>
    <pnt>265</pnt>
   </polyline>
-  <polyline id="39">
+  <polyline name="MIDDLE_STRIP14" id="39">
    <pnt>11</pnt>
    <pnt>75</pnt>
    <pnt>139</pnt>
    <pnt>203</pnt>
    <pnt>267</pnt>
   </polyline>
-  <polyline id="40">
+  <polyline name="MIDDLE_BAG14" id="40">
    <pnt>13</pnt>
    <pnt>77</pnt>
    <pnt>141</pnt>
    <pnt>205</pnt>
    <pnt>269</pnt>
   </polyline>
-  <polyline id="41">
+  <polyline name="MIDDLE_STRIP13" id="41">
    <pnt>15</pnt>
    <pnt>79</pnt>
    <pnt>143</pnt>
@@ -2625,49 +2625,49 @@
    <pnt>209</pnt>
    <pnt>273</pnt>
   </polyline>
-  <polyline id="43">
+  <polyline name="MIDDLE_STRIP12" id="43">
    <pnt>19</pnt>
    <pnt>83</pnt>
    <pnt>147</pnt>
    <pnt>211</pnt>
    <pnt>275</pnt>
   </polyline>
-  <polyline id="44">
+  <polyline name="MIDDLE_BAG12" id="44">
    <pnt>21</pnt>
    <pnt>85</pnt>
    <pnt>149</pnt>
    <pnt>213</pnt>
    <pnt>277</pnt>
   </polyline>
-  <polyline id="45">
+  <polyline name="MIDDLE_STRIP11" id="45">
    <pnt>23</pnt>
    <pnt>87</pnt>
    <pnt>151</pnt>
    <pnt>215</pnt>
    <pnt>279</pnt>
   </polyline>
-  <polyline id="46">
+  <polyline name="MIDDLE_BAG11" id="46">
    <pnt>25</pnt>
    <pnt>89</pnt>
    <pnt>153</pnt>
    <pnt>217</pnt>
    <pnt>281</pnt>
   </polyline>
-  <polyline id="47">
+  <polyline name="MIDDLE_STRIP10" id="47">
    <pnt>27</pnt>
    <pnt>91</pnt>
    <pnt>155</pnt>
    <pnt>219</pnt>
    <pnt>283</pnt>
   </polyline>
-  <polyline id="48">
+  <polyline name="MIDDLE_BAG10" id="48">
    <pnt>29</pnt>
    <pnt>93</pnt>
    <pnt>157</pnt>
    <pnt>221</pnt>
    <pnt>285</pnt>
   </polyline>
-  <polyline id="49">
+  <polyline name="MIDDLE_STRIP9" id="49">
    <pnt>31</pnt>
    <pnt>95</pnt>
    <pnt>159</pnt>
@@ -2681,49 +2681,49 @@
    <pnt>225</pnt>
    <pnt>289</pnt>
   </polyline>
-  <polyline id="51">
+  <polyline name="MIDDLE_STRIP8" id="51">
    <pnt>35</pnt>
    <pnt>99</pnt>
    <pnt>163</pnt>
    <pnt>227</pnt>
    <pnt>291</pnt>
   </polyline>
-  <polyline id="52">
+  <polyline name="MIDDLE_BAG8" id="52">
    <pnt>37</pnt>
    <pnt>101</pnt>
    <pnt>165</pnt>
    <pnt>229</pnt>
    <pnt>293</pnt>
   </polyline>
-  <polyline id="53">
+  <polyline name="MIDDLE_STRIP7" id="53">
    <pnt>39</pnt>
    <pnt>103</pnt>
    <pnt>167</pnt>
    <pnt>231</pnt>
    <pnt>295</pnt>
   </polyline>
-  <polyline id="54">
+  <polyline name="MIDDLE_BAG7" id="54">
    <pnt>41</pnt>
    <pnt>105</pnt>
    <pnt>169</pnt>
    <pnt>233</pnt>
    <pnt>297</pnt>
   </polyline>
-  <polyline id="55">
+  <polyline name="MIDDLE_STRIP6" id="55">
    <pnt>43</pnt>
    <pnt>107</pnt>
    <pnt>171</pnt>
    <pnt>235</pnt>
    <pnt>299</pnt>
   </polyline>
-  <polyline id="56">
+  <polyline name="MIDDLE_BAG6" id="56">
    <pnt>45</pnt>
    <pnt>109</pnt>
    <pnt>173</pnt>
    <pnt>237</pnt>
    <pnt>301</pnt>
   </polyline>
-  <polyline id="57">
+  <polyline name="MIDDLE_STRIP5" id="57">
    <pnt>47</pnt>
    <pnt>111</pnt>
    <pnt>175</pnt>
@@ -2737,56 +2737,56 @@
    <pnt>241</pnt>
    <pnt>305</pnt>
   </polyline>
-  <polyline id="59">
+  <polyline name="MIDDLE_STRIP4" id="59">
    <pnt>51</pnt>
    <pnt>115</pnt>
    <pnt>179</pnt>
    <pnt>243</pnt>
    <pnt>307</pnt>
   </polyline>
-  <polyline id="60">
+  <polyline name="MIDDLE_BAG4" id="60">
    <pnt>53</pnt>
    <pnt>117</pnt>
    <pnt>181</pnt>
    <pnt>245</pnt>
    <pnt>309</pnt>
   </polyline>
-  <polyline id="61">
+  <polyline name="MIDDLE_STRIP3" id="61">
    <pnt>55</pnt>
    <pnt>119</pnt>
    <pnt>183</pnt>
    <pnt>247</pnt>
    <pnt>311</pnt>
   </polyline>
-  <polyline id="62">
+  <polyline name="MIDDLE_BAG3" id="62">
    <pnt>57</pnt>
    <pnt>121</pnt>
    <pnt>185</pnt>
    <pnt>249</pnt>
    <pnt>313</pnt>
   </polyline>
-  <polyline id="63">
+  <polyline name="MIDDLE_STRIP2" id="63">
    <pnt>59</pnt>
    <pnt>123</pnt>
    <pnt>187</pnt>
    <pnt>251</pnt>
    <pnt>315</pnt>
   </polyline>
-  <polyline id="64">
+  <polyline name="MIDDLE_BAG2" id="64">
    <pnt>61</pnt>
    <pnt>125</pnt>
    <pnt>189</pnt>
    <pnt>253</pnt>
    <pnt>317</pnt>
   </polyline>
-  <polyline id="65">
+  <polyline name="MIDDLE_STRIP1" id="65">
    <pnt>63</pnt>
    <pnt>127</pnt>
    <pnt>191</pnt>
    <pnt>255</pnt>
    <pnt>319</pnt>
   </polyline>
-  <polyline id="66">
+  <polyline name="CIRCUMFERENCE_z_0.0" id="66">
    <pnt>0</pnt>
    <pnt>1</pnt>
    <pnt>2</pnt>
@@ -2853,7 +2853,7 @@
    <pnt>63</pnt>
    <pnt>0</pnt>
   </polyline>
-  <polyline id="67">
+  <polyline name="CIRCUMFERENCE_z_0.05" id="67">
    <pnt>64</pnt>
    <pnt>65</pnt>
    <pnt>66</pnt>
@@ -2919,7 +2919,7 @@
    <pnt>126</pnt>
    <pnt>127</pnt>
   </polyline>
-  <polyline id="68">
+  <polyline name="CIRCUMFERENCE_z_0.1" id="68">
    <pnt>128</pnt>
    <pnt>129</pnt>
    <pnt>130</pnt>
@@ -2986,7 +2986,7 @@
    <pnt>191</pnt>
    <pnt>128</pnt>
   </polyline>
-  <polyline id="69">
+  <polyline name="CIRCUMFERENCE_z_0.15" id="69">
    <pnt>192</pnt>
    <pnt>193</pnt>
    <pnt>194</pnt>
@@ -3053,7 +3053,7 @@
    <pnt>255</pnt>
    <pnt>192</pnt>
   </polyline>
-  <polyline id="70">
+  <polyline name="CIRCUMFERENCE_z_0.2" id="70">
    <pnt>256</pnt>
    <pnt>257</pnt>
    <pnt>258</pnt>
@@ -3120,7 +3120,7 @@
    <pnt>319</pnt>
    <pnt>256</pnt>
   </polyline>
-  <polyline id="71">
+  <polyline name="SAMPLE_ARC_z=0" id="71">
    <pnt>320</pnt>
    <pnt>321</pnt>
    <pnt>322</pnt>
@@ -3182,7 +3182,7 @@
    <pnt>378</pnt>
    <pnt>379</pnt>
   </polyline>
-  <polyline id="72">
+  <polyline name="SAMPLE_ARC_z=0.02" id="72">
    <pnt>380</pnt>
    <pnt>381</pnt>
    <pnt>382</pnt>
@@ -3244,7 +3244,7 @@
    <pnt>438</pnt>
    <pnt>439</pnt>
   </polyline>
-  <polyline id="73">
+  <polyline name="SAMPLE_ARC_z=0.04" id="73">
    <pnt>440</pnt>
    <pnt>441</pnt>
    <pnt>442</pnt>
@@ -3306,7 +3306,7 @@
    <pnt>498</pnt>
    <pnt>499</pnt>
   </polyline>
-  <polyline id="74">
+  <polyline name="SAMPLE_ARC_z=0.06" id="74">
    <pnt>500</pnt>
    <pnt>501</pnt>
    <pnt>502</pnt>
@@ -3368,7 +3368,7 @@
    <pnt>558</pnt>
    <pnt>559</pnt>
   </polyline>
-  <polyline id="75">
+  <polyline name="SAMPLE_ARC_z=0.08" id="75">
    <pnt>560</pnt>
    <pnt>561</pnt>
    <pnt>562</pnt>
@@ -3430,7 +3430,7 @@
    <pnt>618</pnt>
    <pnt>619</pnt>
   </polyline>
-  <polyline id="76">
+  <polyline name="SAMPLE_ARC_z=0.1" id="76">
    <pnt>620</pnt>
    <pnt>621</pnt>
    <pnt>622</pnt>
@@ -3492,7 +3492,7 @@
    <pnt>678</pnt>
    <pnt>679</pnt>
   </polyline>
-  <polyline id="77">
+  <polyline name="SAMPLE_ARC_z=0.12" id="77">
    <pnt>680</pnt>
    <pnt>681</pnt>
    <pnt>682</pnt>
@@ -3554,7 +3554,7 @@
    <pnt>738</pnt>
    <pnt>739</pnt>
   </polyline>
-  <polyline id="78">
+  <polyline name="SAMPLE_ARC_z=0.14" id="78">
    <pnt>740</pnt>
    <pnt>741</pnt>
    <pnt>742</pnt>
@@ -3616,7 +3616,7 @@
    <pnt>798</pnt>
    <pnt>799</pnt>
   </polyline>
-  <polyline id="79">
+  <polyline name="SAMPLE_ARC_z=0.16" id="79">
    <pnt>800</pnt>
    <pnt>801</pnt>
    <pnt>802</pnt>
@@ -3678,7 +3678,7 @@
    <pnt>858</pnt>
    <pnt>859</pnt>
   </polyline>
-  <polyline id="80">
+  <polyline name="SAMPLE_ARC_z=0.18" id="80">
    <pnt>860</pnt>
    <pnt>861</pnt>
    <pnt>862</pnt>
@@ -3740,7 +3740,7 @@
    <pnt>918</pnt>
    <pnt>919</pnt>
   </polyline>
-  <polyline id="81">
+  <polyline name="SAMPLE_ARC_z=0.2" id="81">
    <pnt>920</pnt>
    <pnt>921</pnt>
    <pnt>922</pnt>
@@ -3802,7 +3802,7 @@
    <pnt>978</pnt>
    <pnt>979</pnt>
   </polyline>
-  <polyline id="82">
+  <polyline name="SAMPLE_INNER_ARC_z=0.1" id="82">
    <pnt>1295</pnt>
    <pnt>1294</pnt>
    <pnt>1293</pnt>
@@ -3864,7 +3864,7 @@
    <pnt>1297</pnt>
    <pnt>1296</pnt>
   </polyline>
-  <polyline id="83">
+  <polyline name="Lunar_mid" id="83">
    <pnt>1640</pnt>
    <pnt>1641</pnt>
    <pnt>1642</pnt>
@@ -4010,7 +4010,7 @@
    <pnt>1782</pnt>
    <pnt>1783</pnt>
   </polyline>
-  <polyline id="84">
+  <polyline name="Lunar_top" id="84">
    <pnt>1784</pnt>
    <pnt>1785</pnt>
    <pnt>1786</pnt>
