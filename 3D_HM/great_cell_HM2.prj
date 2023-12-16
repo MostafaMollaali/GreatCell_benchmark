@@ -112,7 +112,7 @@
                     <type>PerComponentResidual</type>
                     <norm_type>NORM2</norm_type>
                     <!--reltols>1e-6 1e-9 1e-9 1e-9 1e-10 1e-10 1e-10</reltols-->
-                    <abstols>1e-10 1e-10 1e-10 1e-10 1e-10 1e-10 1e-10</abstols>
+                    <abstols>1.0e-9 1e-10 1e-10 1e-10 1e-10 1e-10 1e-10</abstols>
                 </convergence_criterion>
                 <time_discretization>
                     <type>BackwardEuler</type>
@@ -249,31 +249,31 @@
         <parameter>
             <name>Kn</name>
             <type>Constant</type>
-            <value>1e11</value>
+            <value>100e9</value>
         </parameter>
         <parameter>
             <name>Ks</name>
             <type>Constant</type>
-            <value>1e11</value>
+            <value>40e9</value>
         </parameter>
         <parameter>
             <name>effective_stress0</name>
             <type>Constant</type>
-            <values>-9e6 -9e6 -10e6 0 0 0 </values>
+            <values>-3e6 -3e6 -12e6 0 0 0 </values>
             <!--values>0.0 0.0 0.0 0 0 0 </values-->
         </parameter>
         <parameter>
             <name>fracture_effective_stress0</name>
             <type>Constant</type>
-            <values>0.0 -9e6 0.0</values>
+            <values>0.0 0.0 -1e6</values>
             <!--values>0 0 0.0</values-->
         </parameter>
         <!-- initial values -->
         <parameter>
             <name>p0</name>
             <type>Constant</type>
-            <values>2e6</values>
-        </parameter>
+            <values>3.0e6</values>
+        </parameter>        
         <parameter>
             <name>u0</name>
             <type>Constant</type>

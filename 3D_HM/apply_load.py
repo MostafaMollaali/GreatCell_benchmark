@@ -76,10 +76,10 @@ def main():
         load_values[1] = 8.8e6
         load_values[2] = 9.2e6
         load_values[3] = 9.0e6
-        load_values[4] = 8.9e6
-        load_values[5] = 8.7e6
-        load_values[6] = 9.3e6
-        load_values[7] = 8.7e6
+        load_values[7] = 8.9e6
+        load_values[6] = 8.7e6
+        load_values[5] = 9.3e6
+        load_values[4] = 8.7e6
         apply_load(input_file, output_file_name_base + "_B.prj", load_values)
 
         # Case C
@@ -87,10 +87,10 @@ def main():
         load_values[1] =  6.3e6
         load_values[2] =  6.3e6
         load_values[3] =  6.9e6
-        load_values[4] =  7.9e6
+        load_values[7] =  7.9e6
         load_values[5] =  8.7e6
-        load_values[6] =  8.8e6
-        load_values[7] =  7.8e6
+        load_values[5] =  8.8e6
+        load_values[4] =  7.8e6
         apply_load(input_file, output_file_name_base + "_C.prj", load_values)
 
         # Case D
@@ -98,10 +98,10 @@ def main():
         load_values[1] = 8.7e6
         load_values[2] = 8.7e6
         load_values[3] = 7.7e6
-        load_values[4] = 7.3e6
+        load_values[7] = 7.3e6
         load_values[5] = 6.3e6
-        load_values[6] = 6.3e6
-        load_values[7] = 6.6e6
+        load_values[5] = 6.3e6
+        load_values[4] = 6.6e6
         apply_load(input_file, output_file_name_base + "_D.prj", load_values)
 
         # Case E
@@ -109,10 +109,10 @@ def main():
         load_values[1] = 8.2e6
         load_values[2] = 8.7e6
         load_values[3] = 8.7e6
-        load_values[4] = 7.8e6
-        load_values[5] = 6.8e6
-        load_values[6] = 6.3e6
-        load_values[7] = 6.2e6
+        load_values[7] = 7.8e6
+        load_values[6] = 6.8e6
+        load_values[5] = 6.3e6
+        load_values[4] = 6.2e6
         apply_load(input_file, output_file_name_base + "_E.prj", load_values)
 
         # Case F
@@ -120,10 +120,10 @@ def main():
         load_values[1] = 7.2e6
         load_values[2] = 8.3e6
         load_values[3] = 8.7e6
-        load_values[4] = 8.7e6
-        load_values[5] = 7.7e6
-        load_values[6] = 6.9e6
-        load_values[7] = 6.3e6
+        load_values[7] = 8.7e6
+        load_values[6] = 7.7e6
+        load_values[5] = 6.9e6
+        load_values[4] = 6.3e6
         apply_load(input_file, output_file_name_base + "_F.prj", load_values)
 
         # Case G
@@ -131,10 +131,10 @@ def main():
         load_values[1] = 6.2e6
         load_values[2] = 7.3e6
         load_values[3] = 8.1e6
-        load_values[4] = 8.7e6
-        load_values[5] = 8.7e6
-        load_values[6] = 7.8e6
-        load_values[7] = 6.7e6
+        load_values[7] = 8.7e6
+        load_values[6] = 8.7e6
+        load_values[5] = 7.8e6
+        load_values[4] = 6.7e6
         apply_load(input_file, output_file_name_base + "_G.prj", load_values)
 
         # Case H
@@ -142,10 +142,10 @@ def main():
         load_values[1] = 6.4e6
         load_values[2] = 6.9e6
         load_values[3] = 7.5e6
-        load_values[4] = 8.2e6
-        load_values[5] = 8.7e6
-        load_values[6] = 8.3e6
-        load_values[7] = 7.2e6
+        load_values[7] = 8.2e6
+        load_values[6] = 8.7e6
+        load_values[5] = 8.3e6
+        load_values[4] = 7.2e6
         apply_load(input_file, output_file_name_base + "_H.prj", load_values)
 
         print('The loads are applied successfully!')
