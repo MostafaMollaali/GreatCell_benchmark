@@ -122,8 +122,8 @@
                     <t_initial>0</t_initial>
                     <!--500 s-->
                     <t_end>500</t_end>
-                    <initial_dt>10</initial_dt>
-                    <minimum_dt>10</minimum_dt>
+                    <initial_dt>0.001</initial_dt>
+                    <minimum_dt>0.001</minimum_dt>
                     <maximum_dt>100</maximum_dt>
                     <number_iterations>1 2 5 10  20</number_iterations>
                     <multiplier>       1.6 1.4 1.0 0.7 0.5</multiplier>
@@ -239,7 +239,7 @@
         <parameter>
             <name>S_f</name>
             <type>Constant</type> 	
-            <value>1e-12</value>
+            <value>1e-11</value>
         </parameter>
         <parameter>
             <name>biot_f</name>
@@ -249,12 +249,14 @@
         <parameter>
             <name>Kn</name>
             <type>Constant</type>
-            <value>100e9</value>
+            <!--value>100e9</value-->
+            <value>10e9</value>
         </parameter>
         <parameter>
             <name>Ks</name>
             <type>Constant</type>
-            <value>40e9</value>
+            <!--value>100e9</value-->
+            <value>4e9</value>
         </parameter>
         <parameter>
             <name>effective_stress0</name>
@@ -265,14 +267,14 @@
         <parameter>
             <name>fracture_effective_stress0</name>
             <type>Constant</type>
-            <values>0.0 0.0 -1e6</values>
+            <values>0.0 0.0 -2e6</values>
             <!--values>0 0 0.0</values-->
         </parameter>
         <!-- initial values -->
         <parameter>
             <name>p0</name>
             <type>Constant</type>
-            <values>3.0e6</values>
+            <values>2.0e6</values>
         </parameter>        
         <parameter>
             <name>u0</name>
